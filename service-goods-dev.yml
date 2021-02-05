@@ -64,4 +64,4 @@ application:
   id-generator:
     workerId: 1
     datacenterId: 1
-  appInfo: new-appinfo
+  appInfo: new-appinfo-config-new
