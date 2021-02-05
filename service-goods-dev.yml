@@ -64,4 +64,4 @@ application:
   id-generator:
     workerId: 1
     datacenterId: 1
-  appInfo: goods:8888malifeng
+  appInfo: new-appinfo
