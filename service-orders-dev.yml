@@ -42,8 +42,6 @@ spring:
     host: localhost
     password: 
     database: 0
-server:
-  port: 8302
   
 mybatis-plus:
   type-aliases-package: application.api.pojo.po
