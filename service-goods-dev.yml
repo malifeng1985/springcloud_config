@@ -58,10 +58,3 @@ eureka:
     lease-expiration-duration-in-seconds: 15
     lease-renewal-interval-in-seconds: 5
 
-application:
-  enable:
-    idgen: true
-  id-generator:
-    workerId: 1
-    datacenterId: 1
-  appInfo: goods-info
