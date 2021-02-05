@@ -83,4 +83,4 @@ ribbon:
   MaxAutoRetriesNextServer: 0
   OkToRetryOnAllOperations: false    
 
-appInfo: orders
+appInfo: orders-malifeng
