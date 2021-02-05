@@ -1,0 +1,88 @@
+spring:
+  application:
+    name: service-orders
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+  aop:
+    proxyTargetClass: true
+    auto: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss 
+  session :
+     store-type: none
+  jmx:
+    enabled: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/malifeng?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    username: root
+    password: malifeng
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 200
+      max-wait: 10000
+      time-between-eviction-runs-millis: 15000
+      min-evictable-idle-time-millis: 30000
+      validation-query: select 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      default-auto-commit: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+  redis:
+    host: localhost
+    password: 
+    database: 0
+server:
+  port: 8302
+  
+mybatis-plus:
+  type-aliases-package: application.api.pojo.po
+  mapper-locations: classpath:malifeng/ms/work/mapper/xml/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    '[org.springframework]': info
+    '[com.baomidou]': info  
+    '[malifeng.ms.work.feign]': debug     
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
+
+ribbon:
+  ReadTimeout: 300000
+  ConnectTimeout: 300000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+  OkToRetryOnAllOperations: false    
+
+appInfo: orders
